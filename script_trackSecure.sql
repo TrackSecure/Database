@@ -66,9 +66,10 @@ CREATE TABLE Catraca (
   CONSTRAINT fkCatracaServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (idServidor)
 );
 
--- CREATE TABLE Alerta (
---  idAlerta INT PRIMARY KEY AUTO_INCREMENT,
---  dataHora DATETIME NULL,
---  tipo VARCHAR(45) NULL,
---  descricao VARCHAR(100) NULL
--- );
+CREATE TABLE Alerta (
+  idAlerta INT AUTO_INCREMENT,
+  tipo VARCHAR(45) NULL,
+  descricao VARCHAR(100) NULL,
+  fkRegistro INT,
+  CONSTRAINT fkAlertaRegistro FOREIGN KEY (fkRegistro) REFERENCES Registro (idRegistro)
+);
