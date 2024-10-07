@@ -54,7 +54,9 @@ CREATE TABLE Estacao (
   bairro VARCHAR(45) NULL,
   estado VARCHAR(45) NULL,
   fkEmpresa INT NOT NULL,
-  CONSTRAINT fkEstacaoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
+  fkServidor INT NOT NULL,
+  CONSTRAINT fkEstacaoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa),
+  CONSTRAINT fkEstacaoServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (idServidor)
 );
 
 CREATE TABLE Alerta (
