@@ -57,15 +57,6 @@ CREATE TABLE Estacao (
   CONSTRAINT fkEstacaoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
 
-CREATE TABLE Catraca (
-  idCatraca INT NOT NULL,
-  funcionalidade VARCHAR(45) NULL,
-  fkEstacao INT NOT NULL,
-  fkServidor INT NOT NULL,
-  CONSTRAINT fkCatracaEstacao FOREIGN KEY (fkEstacao) REFERENCES Estacao (idEstacao),
-  CONSTRAINT fkCatracaServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (idServidor)
-);
-
 CREATE TABLE Alerta (
   idAlerta INT AUTO_INCREMENT,
   tipo VARCHAR(45) NULL,
