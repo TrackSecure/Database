@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS TrackSecure;
 CREATE DATABASE TrackSecure;
  
-USE TrackSecure ;
+USE TrackSecure;
  
 CREATE TABLE Empresa (
   idEmpresa INT PRIMARY KEY,
@@ -12,6 +12,9 @@ CREATE TABLE Empresa (
   numero VARCHAR(10) NOT NULL,
   telefone CHAR(11) NOT NULL
 );
+
+INSERT INTO Empresa VALUES
+(1, '12345678901234', 'Empresa Teste', '12345678', 'Teste', '1', '12345678901');
  
 CREATE TABLE Funcionario (
   idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
@@ -19,6 +22,7 @@ CREATE TABLE Funcionario (
   senha VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL,
   cpf CHAR(11) NOT NULL,
+  telefone CHAR(11) NOT NULL,
   cargo VARCHAR(30) NOT NULL,
   fkEmpresa INT NOT NULL,
   CONSTRAINT fkUsuarioEmpresa FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
@@ -60,9 +64,11 @@ CREATE TABLE Estacao (
 );
 
 CREATE TABLE Alerta (
-  idAlerta INT AUTO_INCREMENT,
+  idAlerta INT PRIMARY KEY AUTO_INCREMENT,
   tipo VARCHAR(45) NULL,
   descricao VARCHAR(100) NULL,
   fkRegistro INT,
   CONSTRAINT fkAlertaRegistro FOREIGN KEY (fkRegistro) REFERENCES Registro (idRegistro)
 );
+
+select * from servidor;
