@@ -23,7 +23,7 @@ CREATE TABLE Funcionario (
   email VARCHAR(50) NOT NULL,
   cpf CHAR(11) NOT NULL,
   telefone CHAR(11) NOT NULL,
-  cargo VARCHAR(30) NOT NULL,
+  cargo VARCHAR(50) NOT NULL,
   fkEmpresa INT NOT NULL,
   CONSTRAINT fkUsuarioEmpresa FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
@@ -71,4 +71,7 @@ CREATE TABLE Alerta (
   CONSTRAINT fkAlertaRegistro FOREIGN KEY (fkRegistro) REFERENCES Registro (idRegistro)
 );
 
-select * from servidor;
+SELECT * FROM Servidor;
+SELECT * FROM Estacao;
+SELECT * FROM Funcionario;
+SELECT * FROM Empresa;
