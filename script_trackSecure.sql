@@ -29,7 +29,7 @@ CREATE TABLE Funcionario (
 );
 
 CREATE TABLE Servidor (
-  idServidor INT PRIMARY KEY AUTO_INCREMENT,
+  MacAddress CHAR(17) PRIMARY KEY,
   nome VARCHAR(80) NULL,
   sistOperacional VARCHAR(60) NULL,
   memoriaTotal DECIMAL(5,2) NULL,
@@ -48,8 +48,8 @@ CREATE TABLE Registro (
   freqProcessador DOUBLE NULL,
   memoriaUsada DOUBLE NULL,
   discoUsado DOUBLE NULL,
-  fkServidor INT NOT NULL,
-  CONSTRAINT fkRegistroServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (idServidor)
+  fkServidor CHAR(17) NOT NULL,
+  CONSTRAINT fkRegistroServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
 
 CREATE TABLE Estacao (
@@ -57,21 +57,23 @@ CREATE TABLE Estacao (
   nome VARCHAR(45) NULL,
   bairro VARCHAR(45) NULL,
   estado VARCHAR(45) NULL,
-  fkEmpresa INT NOT NULL,
-  fkServidor INT NOT NULL,
-  CONSTRAINT fkEstacaoEmpresa FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa),
-  CONSTRAINT fkEstacaoServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (idServidor)
+  linha VARCHAR(45),
+  fkServidor CHAR(17) NOT NULL,
+  CONSTRAINT fkEstacaoServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
 
 CREATE TABLE Alerta (
   idAlerta INT PRIMARY KEY AUTO_INCREMENT,
   tipo VARCHAR(45) NULL,
   descricao VARCHAR(100) NULL,
-  fkRegistro INT,
-  CONSTRAINT fkAlertaRegistro FOREIGN KEY (fkRegistro) REFERENCES Registro (idRegistro)
+  dtHora DATETIME,
+  fkServidor CHAR(17),
+  CONSTRAINT fkAlertaServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
 
 SELECT * FROM Servidor;
 SELECT * FROM Estacao;
 SELECT * FROM Funcionario;
 SELECT * FROM Empresa;
+
+desc funcionario;
