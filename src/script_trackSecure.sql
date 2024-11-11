@@ -41,7 +41,7 @@ CREATE TABLE Servidor (
  
 CREATE TABLE Registro (
   idRegistro INT PRIMARY KEY AUTO_INCREMENT,
-  dtHora DATETIME NULL,
+  dtHora DATETIME DEFAULT CURRENT_TIMESTAMP(),
   porcentagemProcessador DECIMAL(5,2) NULL,
   porcentagemMemoria DECIMAL(5,2) NULL,
   porcentagemDisco DECIMAL(5,2) NULL,
@@ -66,14 +66,7 @@ CREATE TABLE Alerta (
   idAlerta INT PRIMARY KEY AUTO_INCREMENT,
   tipo VARCHAR(45) NULL,
   descricao VARCHAR(100) NULL,
-  dtHora DATETIME,
+  dtHora DATETIME DEFAULT CURRENT_TIMESTAMP(),
   fkServidor CHAR(17),
   CONSTRAINT fkAlertaServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
-
-SELECT * FROM Servidor;
-SELECT * FROM Estacao;
-SELECT * FROM Funcionario;
-SELECT * FROM Empresa;
-
-desc funcionario;
