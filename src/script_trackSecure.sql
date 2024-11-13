@@ -38,6 +38,8 @@ CREATE TABLE Servidor (
   fkEmpresa INT NOT NULL,
   CONSTRAINT fkServidorEmpresa FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
+
+INSERT INTO Servidor VALUES ("00:00:00:00:00:00", "Servidor Teste", "Windows 10", 16.0, 126.0, 4.0, 1);
  
 CREATE TABLE Registro (
   idRegistro INT PRIMARY KEY AUTO_INCREMENT,
@@ -55,9 +57,7 @@ CREATE TABLE Registro (
 CREATE TABLE Estacao (
   idEstacao INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(45) NULL,
-  bairro VARCHAR(45) NULL,
-  estado VARCHAR(45) NULL,
-  linha VARCHAR(45),
+  linha VARCHAR(45) NOT NULL,
   fkServidor CHAR(17) NOT NULL,
   CONSTRAINT fkEstacaoServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
