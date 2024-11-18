@@ -70,3 +70,11 @@ CREATE TABLE Alerta (
   fkServidor CHAR(17),
   CONSTRAINT fkAlertaServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
+
+CREATE TABLE Processo (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45),
+usoMemoria INT,
+fkServidor CHAR(17),
+FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
+);
