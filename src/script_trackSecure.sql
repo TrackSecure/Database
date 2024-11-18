@@ -50,6 +50,7 @@ CREATE TABLE Registro (
   freqProcessador DOUBLE NULL,
   memoriaUsada DOUBLE NULL,
   discoUsado DOUBLE NULL,
+  pacotesRecebidos INT,
   fkServidor CHAR(17) NOT NULL,
   CONSTRAINT fkRegistroServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
