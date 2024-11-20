@@ -79,3 +79,11 @@ usoMemoria INT,
 fkServidor CHAR(17),
 FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
+
+CREATE TABLE ServidorStatus (
+id INT PRIMARY KEY AUTO_INCREMENT,
+uptime BOOLEAN NOT NULL,
+dataHora DATETIME NOT NULL,
+fkServidor CHAR(17),
+FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
+);
