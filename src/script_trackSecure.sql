@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS TrackSecure;
 CREATE DATABASE TrackSecure;
  
 USE TrackSecure;
+
+-- Tabela Empresa -----------------------------------------------------------------------------------------------------------------------------------
  
 CREATE TABLE Empresa (
   idEmpresa INT PRIMARY KEY,
@@ -15,6 +17,8 @@ CREATE TABLE Empresa (
 
 INSERT INTO Empresa VALUES
 (1, '12345678901234', 'Empresa Teste', '12345678', 'Teste', '1', '12345678901');
+
+-- Tabela Funcionario -----------------------------------------------------------------------------------------------------------------------------------
  
 CREATE TABLE Funcionario (
   idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
@@ -28,6 +32,8 @@ CREATE TABLE Funcionario (
   CONSTRAINT fkUsuarioEmpresa FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
 
+-- Tabela Servidor -----------------------------------------------------------------------------------------------------------------------------------
+
 CREATE TABLE Servidor (
   MacAddress CHAR(17) PRIMARY KEY,
   nome VARCHAR(80) NULL,
@@ -40,6 +46,8 @@ CREATE TABLE Servidor (
 );
 
 INSERT INTO Servidor VALUES ("00:00:00:00:00:00", "Servidor Teste", "Windows 10", 16.0, 126.0, 4.0, 1);
+
+ -- Tabela Registro  -----------------------------------------------------------------------------------------------------------------------------------
  
 CREATE TABLE Registro (
   idRegistro INT PRIMARY KEY AUTO_INCREMENT,
@@ -55,6 +63,8 @@ CREATE TABLE Registro (
   CONSTRAINT fkRegistroServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
 
+-- Tabela Estação -----------------------------------------------------------------------------------------------------------------------------------
+
 CREATE TABLE Estacao (
   idEstacao INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(45) NULL,
@@ -62,6 +72,8 @@ CREATE TABLE Estacao (
   fkServidor CHAR(17) NOT NULL,
   CONSTRAINT fkEstacaoServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
+
+-- Tabela Alerta -----------------------------------------------------------------------------------------------------------------------------------
 
 CREATE TABLE Alerta (
   idAlerta INT PRIMARY KEY AUTO_INCREMENT,
@@ -72,6 +84,18 @@ CREATE TABLE Alerta (
   CONSTRAINT fkAlertaServidor FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
 
+-- Tabela Crawler --------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE webcrawler (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    estacao VARCHAR(255),
+    linha VARCHAR(50),
+    mes INT,
+    quantidade_pessoas INT
+);
+
+-- Tabela Processo --------------------------------------------------------------------------------------------------------------------------------
+
 CREATE TABLE Processo (
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
@@ -79,6 +103,8 @@ usoMemoria DECIMAL(5,2),
 fkServidor CHAR(17),
 FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
+
+-- Tabela Servidor Status --------------------------------------------------------------------------------------------------------------------------------
 
 CREATE TABLE ServidorStatus (
 id INT PRIMARY KEY AUTO_INCREMENT,
