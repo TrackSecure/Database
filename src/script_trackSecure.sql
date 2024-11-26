@@ -36,6 +36,7 @@ CREATE TABLE Funcionario (
 
 CREATE TABLE Servidor (
   MacAddress CHAR(17) PRIMARY KEY,
+  ip VARCHAR(15) NOT NULL,
   nome VARCHAR(80) NULL,
   sistOperacional VARCHAR(60) NULL,
   memoriaTotal DECIMAL(5,2) NULL,
@@ -109,7 +110,7 @@ FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 CREATE TABLE ServidorStatus (
 id INT PRIMARY KEY AUTO_INCREMENT,
 uptime BOOLEAN NOT NULL,
-dataHora DATETIME NOT NULL,
+dataHora DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP(),
 fkServidor CHAR(17),
 FOREIGN KEY (fkServidor) REFERENCES Servidor (MacAddress)
 );
