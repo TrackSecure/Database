@@ -16,7 +16,7 @@ CREATE TABLE Empresa (
 );
 
 INSERT INTO Empresa VALUES
-(1, '12345678901234', 'Empresa Teste', '12345678', 'Teste', '1', '12345678901');
+(1, '12345678901234', 'Metrô SP', '12345678', 'Rua fictícia', '1', '12345678901');
 
 -- Tabela Funcionario -----------------------------------------------------------------------------------------------------------------------------------
  
@@ -46,7 +46,7 @@ CREATE TABLE Servidor (
   CONSTRAINT fkServidorEmpresa FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa)
 );
 
-INSERT INTO Servidor VALUES ("00:00:00:00:00:00", "Servidor Teste", "Windows 10", 16.0, 126.0, 4.0, 1);
+-- INSERT INTO Servidor VALUES ("00:00:00:00:00:00", "Servidor Teste", "Windows 10", 16.0, 126.0, 4.0, 1);
 
  -- Tabela Registro  -----------------------------------------------------------------------------------------------------------------------------------
  
