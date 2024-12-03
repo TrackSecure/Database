@@ -90,7 +90,7 @@ CREATE TABLE `Estacao` (
   PRIMARY KEY (`idEstacao`),
   KEY `fkEstacaoServidor` (`fkServidor`),
   CONSTRAINT `fkEstacaoServidor` FOREIGN KEY (`fkServidor`) REFERENCES `Servidor` (`MacAddress`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `Estacao` (
 
 LOCK TABLES `Estacao` WRITE;
 /*!40000 ALTER TABLE `Estacao` DISABLE KEYS */;
-INSERT INTO `Estacao` VALUES (1,'Saúde','Azul','12:08:f4:8c:69:45'),(2,'Consolação','Verde','10:00:00:00:00:00'),(4,'Sé','Vermelha','20:00:00:00:00:00'),(5,'Brás','Vermelha','30:00:00:00:00:00'),(6,'Vila Prudente','Prata','40:00:00:00:00:00'),(7,'Iguatemi','Prata','50:00:00:00:00:00'),(8,'São Judas','Azul','00:00:00:00:00:00'),(9,'Santa Cruz','Azul','12:08:f4:8c:69:45'),(10,'Jabaquara','Azul','12:08:f4:8c:69:45'),(11,'Luz','Azul','00:00:00:00:00:00'),(12,'Praça da Árvore','Azul','00:00:00:00:00:00'),(13,'Vila Madalena','Verde','0a:ff:c5:d7:d1:11'),(14,'Sumaré','Verde','0a:ff:c5:d7:d1:11'),(15,'Clínicas','Verde','0a:ff:c5:d7:d1:11'),(16,'Trianon Masp','Verde','10:00:00:00:00:00'),(17,'Brigadeiro','Verde','10:00:00:00:00:00'),(18,'República','Vermelha','20:00:00:00:00:00'),(19,'Tatuapé','Vermelha','20:00:00:00:00:00'),(20,'Pedro II','Vermelha','30:00:00:00:00:00'),(21,'Santa Cecília','Vermelha','30:00:00:00:00:00'),(22,'Oratório','Prata','40:00:00:00:00:00'),(23,'São Lucas','Prata','40:00:00:00:00:00'),(24,'São Mateus','Prata','50:00:00:00:00:00'),(25,'Jardim Planalto','Prata','50:00:00:00:00:00');
+INSERT INTO `Estacao` VALUES (1,'Saúde','Azul','12:08:f4:8c:69:45'),(2,'São Judas','Azul','00:00:00:00:00:00'),(3,'Consolação','Verde','0a:ff:c5:d7:d1:11'),(4,'Paraíso','Verde','10:00:00:00:00:00'),(5,'Sé','Vermelha','20:00:00:00:00:00'),(6,'Brás','Vermelha','30:00:00:00:00:00'),(7,'Vila Prudente','Prata','40:00:00:00:00:00'),(8,'Iguatemi','Prata','50:00:00:00:00:00');
 /*!40000 ALTER TABLE `Estacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -295,4 +295,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-02 20:57:26
+-- Dump completed on 2024-12-02 21:43:11
